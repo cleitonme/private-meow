@@ -1,9 +1,9 @@
 name: Sync WhatsMeow Upstream + Apply Private Patch
 
 on:
-  workflow_dispatch:   # Execução manual
+  workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"  # executa 1x por hora (pode ajustar)
+    - cron: "0 * * * *"
 
 jobs:
   sync:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Add upstream repository
         run: |
-          git remote add upstream git@github.com:tulir/whatsmeow.git || true
+          git remote add upstream https://github.com/tulir/whatsmeow.git || true
           git fetch upstream
 
       - name: Update main with upstream changes
